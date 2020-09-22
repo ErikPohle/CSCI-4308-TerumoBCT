@@ -1,0 +1,28 @@
+version: '3'
+services:
+
+  jupyter:
+    build:
+      context: .
+    ports:
+       - "127.0.0.1::8888"
+    volumes:
+       - ../:/mnt
+    entrypoint: bash -c "cd /mnt && jupyter lab --NotebookApp.token='' --ip=0.0.0.0 --no-browser --allow-root && /bin/bash" 
+    stdin_open: true
+    container_name: "CSCI-4308-TerumoBCT_jupyter_${USER}"
+    tty: true
+    env_file:
+      - ../.env 
+
+  bash:
+    build:
+      context: .
+    volumes:
+       - ../:/mnt
+    entrypoint: "/bin/bash" 
+    stdin_open: true
+    container_name: "CSCI-4308-TerumoBCT_bash_${USER}"
+    tty: true
+    env_file:
+      - ../.env 
