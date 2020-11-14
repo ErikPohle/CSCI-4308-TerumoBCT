@@ -17,3 +17,4 @@ scipy==1.5.2 					# Scientific Library for Python
 seaborn==0.11.0					# statistical data visualization
 statsmodels==0.12.0				# Statistical computations and models for Python
 SQLAlchemy==1.3.13				# Database Abstraction Library
+pyodbc
