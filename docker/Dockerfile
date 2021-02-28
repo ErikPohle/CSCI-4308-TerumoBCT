@@ -7,6 +7,12 @@ ENV LC_ALL=C.UTF-8 \
 
 RUN apt-get update -qq && apt-get install -qqy --no-install-recommends software-properties-common
 RUN add-apt-repository ppa:deadsnakes/ppa
+
+RUN apt-get update && apt-get install -y --no-install-recommends \
+    unixodbc-dev \
+    unixodbc \
+    libpq-dev 
+
 RUN apt-get update -qq && \
     apt-get install -qqy --no-install-recommends \
     python3.8 \
@@ -63,6 +69,9 @@ RUN apt-get install -y --no-install-recommends \
         libxss1 \
         libgconf-2-4 \
         libnss3 \
+		build-essential \
+		libssl-dev \
+		libffi-dev \
         libasound2 && \
      mkdir -p /home/orca && \
      cd /home/orca && \
